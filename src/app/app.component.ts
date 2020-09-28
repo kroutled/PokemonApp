@@ -14,12 +14,9 @@ export class AppComponent {
   constructor(private pokedex: PokedexService) { }
 
   findPokemon(pokemonName: string) {
-    //TODO:
-    //pass name to pokedex service
-    //mapp returned json from service to pokemon model object
-    //pass object to front end and display values
     this.pokedex.getPokemonByName(pokemonName.toLocaleLowerCase()).subscribe((res : Pokemon) => {
       this.pokemon = res;
+      console.log('Heres the mon: ', this.pokemon.sprites);
     });
   }
 }
